@@ -2,6 +2,7 @@ package io.github.beatrizdamascenof;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -18,8 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class VendasApplication {
 
-    @Autowired
-    @Qualifier("applicationName")
+//    @Autowired
+//    @Qualifier("applicationName")  eles podem ser substituidos pelo application.name lá em resources > application.properties, que é o Value abaixo
+
+    @Value("${application.name}")
     private String applicationName;
 
     @GetMapping("/hello") // rota de acesso da aplicação. ao rodar ele indica a porta no terminal e é só por localhost:8080/hello no chrome
